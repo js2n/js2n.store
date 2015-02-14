@@ -23,7 +23,7 @@ create table books  (
   author char(100),
   title char(100),
   cat_id int unsigned,
-  price float(4,2) not null,
+  price float(6,2) not null,
   img_src varchar(300),
   shortdescription text,
   description text
@@ -37,7 +37,7 @@ create table categories  (
 create table order_items  (
   order_id int unsigned not null references orders(order_id),
   isbn char(13) not null references books(isbn),
-  item_price float(4,2) not null,
+  item_price float(6,2) not null,
   quantity tinyint unsigned not null,
   primary key (order_id, isbn)
 ) ENGINE=InnoDB;
