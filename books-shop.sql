@@ -1,11 +1,10 @@
 create table customers (
 	customer_id int unsigned not null auto_increment primary key,
 	name char(60) not null,
-	adress char(80) not null,
+  email char(100) not null,
+  phone char(100) not null,
 	city char(30) not null,
-	state char(60),
-	zip char(10),
-	country char(20) not null
+	state char(60)
 ) ENGINE=InnoDB;
 
 create table orders  (
@@ -15,11 +14,8 @@ create table orders  (
   date date not null,
   order_status char(10),
   ship_name char(60) not null,
-  ship_adress char(80) not null,
   ship_city char(30) not null,
-  ship_state char(20),
-  ship_zip char(10),
-  ship_country char(20) not null
+  ship_state char(20)
 ) ENGINE=InnoDB;
 
 create table books  (
