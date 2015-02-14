@@ -1,0 +1,209 @@
+*  {
+	margin: 0;
+	padding: 0;
+	-webkit-margin-before: 0;
+  -webkit-margin-after: 0;
+}
+html  {
+	font-size: 62.5%;
+	/* use rem to font-sizing! */
+	font-family: sans-serif;
+}
+#error  {
+	padding: 5px;
+	background-color: red;
+	color: #fff;
+	font-size: 1.4rem;
+}
+form  {
+	font-size: 1.2rem;
+	margin: 20px 0;
+}
+form .label  {
+	float: left;
+	width: 100px;
+	text-align: right;
+	margin-right: 10px;
+	margin-top: 10px;
+}
+#add-item  {
+	margin-left: 110px;
+}
+#make-order  {
+	margin-left: 110px;
+}
+fieldset  {
+	border: 1px solid #ededed;
+	padding: 5px;
+	margin-top: 10px;
+	width: 80%;
+}
+input, select  {
+	margin: 10px 0px;
+}
+
+/* Cart buttons */
+input.checkout  {
+	background-color: #fff;
+	color: red;
+	border: 1px solid red;
+	padding: 5px 10px;
+	font-weight: bold;
+	font-size: 1.2rem;
+	text-decoration: underline;
+	cursor: pointer;
+}
+a.cart-button {
+	color: red;
+	border: 1px solid red;
+	padding: 5px 10px;
+	font-weight: bold;
+}
+/* Header */
+.header  {
+	padding: 10px 0 10px 0;
+	border-bottom: 1px solid #b7b7b7;
+	margin-bottom: 20px;
+}
+.header h1  {
+	font-size: 4rem;
+	color: #969696;
+}
+.header h1 a  {
+	text-decoration: none;
+	color: #969696;
+}
+.cart  {
+	font-size: 1.2rem;
+}
+.sidebar ul li  {
+	list-style: none;
+	padding-bottom: 3px;
+	font-size: 1.4rem;
+}
+
+/* Single item */
+
+.img-and-price  {
+	width: 180px;
+	float: left;
+	margin-right: 10px;
+	margin-bottom: ;
+}
+.single-item-description {
+	font-size: 1.2rem;
+  margin-left: 190px;
+}
+.single-item-shortdescription {
+	font-size: 1.2rem;
+  margin-left: 190px;
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+  border-bottom: 1px dashed #ccc;
+  font-style: italic;
+}
+.single-item-title  {
+	font-size: 3rem;
+  color: #969696;
+  margin-bottom: 5px;
+}
+.single-price-title  {
+	padding-top: 10px;
+  display: inline-block;
+  font-size: 1.2rem;
+}
+.single-price  {
+	color: red;
+	font-size: 3rem;
+	font-weight: bold;
+}
+
+
+.items-area h2  {
+	font-size: 3rem;
+	color: #969696;
+	margin-bottom: 5px;
+}
+.item  {
+	border: 1px solid #f4f4f4;
+	width: 170px;
+	float: left;
+	padding: 10px;
+	font-size: 1.2rem;
+	margin: 0 20px 20px 0;
+}
+.item .price  {
+	color: red;
+	font-size: 3rem;
+	display: inline-block;
+	margin-top: 10px;
+	font-weight: bold;
+}
+.buy-item  {
+	margin-top: 5px;
+}
+.item img  {
+	display: block;
+	margin: 0 auto;
+	margin-bottom: 10px;
+}
+.footer  {
+	border-top: 1px solid #b7b7b7;
+	margin-top: 50px;
+	padding-bottom: 40px;
+	text-align: center;
+}
+.copyright  {
+	display: inline-block;
+	padding-top: 10px;
+}
+
+/* ******* Admin panel styles ******* */
+.adm-button  {
+	position: relative;
+}
+.bgr  {
+	width: 150px;
+	height: 150px;
+	margin: 0 auto;
+	background-image: url(http://placehold.it/150x150);
+}
+.adm-button a  {
+	text-align: center;
+	display: block;
+	width: 100%;
+	position: absolute;
+	left: 0;
+	bottom: 10px;
+	font-size: 1.4rem;
+}
+.logout  {
+	width: 25%;
+	float: right;
+	font-size: 1.4rem;
+	text-align: right;
+}
+.logout #return  {
+	color: red;
+	font-weight: bold;
+}
+table  {
+	font-size: 1rem;
+	width: 80%;
+	border-collapse: collapse;
+}
+table td  {
+	padding: 5px 0px;
+	border-bottom: 1px solid #ccc;
+}
+table th  {
+	text-align: left;
+}
+.pages-cntr  {
+	width: 80%;
+	text-align: center;
+	margin-top: 20px;
+}
+.pages-cntr a  {
+  margin-right: 20px;
+}
