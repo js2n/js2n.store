@@ -17,7 +17,7 @@ $menuItems = array(
 	                  'cat_manager.php'  => 'Categories manager',
 	                  'user_manager.php' => 'Users manager',
 	                  'items_manager.php'=> 'Items manager',
-	                  'order_manager'    => 'Orders manager'
+	                  'orders_manager.php'    => 'Orders manager'
 	                );
 ?>
 <!DOCTYPE html>
@@ -26,11 +26,7 @@ $menuItems = array(
 <?php $view->doHTMLHead($title, $description); ?>
 </head>
 <body>
-  <div class = "header container_12">
-    <h1 class = "grid_8">Books-Shop: admin panel</h1>
-    <div class = "logout"><a href = "logout.php">Log out</a> | <a href = "/index.php">View site</a></div> 
-  </div>
-  <div class = "clear"></div>
+  <?php $view->doAdminPanelHeader('Admin Panel'); ?>
   <div class = "wrapper container_12">
   	<?php $view->doAdminMenu($menuItems); ?>
   </div>

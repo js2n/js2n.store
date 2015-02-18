@@ -48,10 +48,12 @@ class UserView  {
     trim(strip_tags($title));
     echo '<div class = "header container_12">';
     echo "<h1 class = 'grid_8'>$title</h1>";
-    if ($_SERVER['REQUEST_URI'] == 'panel.php')
-      echo '<div class = "logout"><a href = "logout.php">Log out</a> | <a href = "/index.php">View site</a></div>';
-    echo '<div class = "logout"><a href = "panel.php" id = "return">Return</a> | <a href = "logout.php">Log out</a> | '.
-                                                            '<a href = "/index.php">View site</a></div>';
+    if ($_SERVER['REQUEST_URI'] == '/admin/panel.php') {
+      echo '<div class="logout"><a href="logout.php">Log out</a> | <a href="/index.php" target="_blank">View site</a></div>';
+    } else {  
+      echo '<div class="logout"><a href="panel.php" id="return">Return</a> | <a href="logout.php">Log out</a> | '.
+           '<a href="/index.php" target="_blank">View site</a></div>';
+         }
     echo '</div>';
   } 
   
