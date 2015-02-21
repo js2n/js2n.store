@@ -1,8 +1,9 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['admin_user']))  
+if (!isset($_SESSION['admin_user'])) { 
   header('Location: index.php');
+}
 
 spl_autoload_register(function($class)  {
   include '../classes/' . $class . '.class.php';
@@ -23,7 +24,7 @@ $menuItems = array(
 <!DOCTYPE html>
 <html>
 <head>
-<?php $view->doHTMLHead($title, $description); ?>
+  <?php $view->doHTMLHead($title, $description); ?>
 </head>
 <body>
   <?php $view->doAdminPanelHeader('Admin Panel'); ?>

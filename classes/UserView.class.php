@@ -164,5 +164,29 @@ class UserView  {
       <input type = "submit" value = "Make order!" id = "make-order">
     </fieldset>
   <?php }
-
+  
+  public function displayOrders($orders) {
+    if ($orders === false) {
+      echo 'No orders ... yet.';
+    } else {
+      echo '<table>';
+      echo '<tbody>';
+      echo '<tr><th>Order ID</th><th>Customer ID</th><th>Date</th><th>Amount</th><th>Order Status</th>' . 
+           '<th>Ship name</th><th>Ship city</th><th>Ship state</th></tr>';
+      foreach($orders as $order) {
+        echo '<tr class="order-tr">';
+        echo "<td>{$order['order_id']}</td><td>{$order['customer_id']}</td><td>{$order['date']}</td><td>{$order['amount']}</td>" . 
+              "<td>{$order['order_status']}</td><td>{$order['ship_name']}</td><td>{$order['ship_city']}</td><td>{$order['ship_state']}</td>";
+        $db = new UserDB(DB::host, DB::username, DB::passwd, DB::db);
+        $orderItems = $db->getOrderItems((int)$order['order_id']);
+        foreach ($orderItems as $items) {
+          echo "<tr id='details'><td>ISBN: {$items['isbn']}" . 
+               "; Quantity: {$items['quantity']}; " . 
+               "Item price: {$items['item_price']}<td></tr>";
+          echo '</tr>';
+        }
+      }
+      echo '</tbody></table>';
+    }
+  }  
 }

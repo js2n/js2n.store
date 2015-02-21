@@ -370,6 +370,42 @@ class UserDB extends DB  {
       $totalPrice += $price * $amount;
     }
     return $totalPrice;
+  }
+
+  public function getOrders() {
+    $orders = array();
+    $sql = 'select order_id, customer_id, amount, date, order_status, ship_name, ship_city, ship_state from orders';
+    if (!$res = $this->query($sql)) {
+      throw new Exception('Unable connect to database!');
+      return false;
+    }
+    
+    if ($res->num_rows > 0) {
+      while($row = $res->fetch_assoc()) {
+        $orders[] = $row;
+      }
+    return $orders;
+    } else {
+      return false;
+    }
+  }
+
+  public function getOrderItems($orderID) {
+    $orderItems = array();
+    $sql = "select isbn, item_price, quantity from order_items where order_id = '$orderID'";
+    if (!$res = $this->query($sql)) {
+      throw new Exception('Unable connect to database!');
+      return false;
+    }
+
+    if ($res->num_rows > 0) {
+      while($row = $res->fetch_assoc()) {
+        $orderItems[] = $row;
+      }
+    return $orderItems;
+    } else {
+      return false;
+    }
   } 
 }
 ?>
