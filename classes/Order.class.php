@@ -10,30 +10,31 @@ class Order extends UserDB  {
   	$this->orderData = $orderData;
   }
 
-  public function checkCustomer()  {
-	  extract($this->orderData);
-	  $sql = "select customer_id from customers where email = '$email'";
-	  $res = $this->query($sql);
-	  
-	  if ($res->num_rows > 0) {
-	    $customer = $res->fetch_object();
-	    $this->customerid = $customer->customer_id;
-	  } else {
-	    $sql = "insert into customers (name, city, state, email, phone) values (?, ?, ?, ?, ?)";
-	    if (!$stmt = $this->prepare($sql))  {
-	      throw new Exception("Not prepare: $stmt->error");
-	      return false;
-	    }
-	    if (!$stmt->bind_param('sssss', $name, $city, $region, $email, $phone))  {
-	      throw new Exception("Not bind: $stmt->error");
-	      return false;
-	    }    
-	    if (!$stmt->execute())  {
-	      throw new Exception("Not exec!: $stmt->error");
-	      return false;
-	    }
-	  $this->customerid = $stmt->insert_id;
-	  }
+  public function checkCustomer()  
+  {
+  extract($this->orderData);
+  $sql = "select customer_id from customers where email = '$email'";
+  $res = $this->query($sql);
+  
+  if ($res->num_rows > 0) {
+    $customer = $res->fetch_object();
+    $this->customerid = $customer->customer_id;
+  } else {
+    $sql = "insert into customers (name, city, state, email, phone) values (?, ?, ?, ?, ?)";
+    if (!$stmt = $this->prepare($sql))  {
+      throw new Exception("Not prepare: $stmt->error");
+      return false;
+    }
+    if (!$stmt->bind_param('sssss', $name, $city, $region, $email, $phone))  {
+      throw new Exception("Not bind: $stmt->error");
+      return false;
+    }    
+    if (!$stmt->execute())  {
+      throw new Exception("Not exec!: $stmt->error");
+      return false;
+    }
+  $this->customerid = $stmt->insert_id;
+  }
   }
 
   public function insertOrderData() {

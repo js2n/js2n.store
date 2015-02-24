@@ -406,6 +406,24 @@ class UserDB extends DB  {
     } else {
       return false;
     }
+  }
+  
+  public function getCustomers() {
+    $customers = array();
+    $sql = "select customer_id, name, city, state, email, phone from customers";
+    if (!$res = $this->query($sql)) {
+      throw new Exception('Unable connect to database!');
+      return false;
+    }
+
+    if ($res->num_rows > 0) {
+      while($row = $res->fetch_assoc()) {
+        $customers[] = $row;
+      }
+    return $customers;
+    } else {
+      return false;
+    }
   } 
 }
 ?>

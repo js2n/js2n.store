@@ -165,11 +165,12 @@ class UserView  {
     </fieldset>
   <?php }
   
-  public function displayOrders($orders) {
+  public function displayOrders($orders) 
+  {
     if ($orders === false) {
       echo 'No orders ... yet.';
     } else {
-      echo '<table>';
+      echo '<table class="order-table">';
       echo '<tbody>';
       echo '<tr><th>Order ID</th><th>Customer ID</th><th>Date</th><th>Amount</th><th>Order Status</th>' . 
            '<th>Ship name</th><th>Ship city</th><th>Ship state</th></tr>';
@@ -188,5 +189,21 @@ class UserView  {
       }
       echo '</tbody></table>';
     }
-  }  
+  }
+  
+  public function listCustomers($customers)
+  {
+    if ($customers === false) {
+      echo 'No customers ... yet.';
+    } else {
+      echo '<table>';
+      echo '<tbody>';
+      echo '<tr><th>Customer ID</th><th>Name</th><th>City</th><th>State</th><th>Email</th>' . 
+           '<th>Phone</th>';
+      foreach($customers as $customer) {
+        echo "<tr><td>{$customer['customer_id']}</td><td>{$customer['name']}</td><td>{$customer['city']}</td>" .
+             "<td>{$customer['state']}</td><td>{$customer['email']}</td><td>{$customer['phone']}</td></tr>";
+      }
+    }
+  }   
 }

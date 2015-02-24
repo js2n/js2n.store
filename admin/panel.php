@@ -15,10 +15,11 @@ $db = new UserDB(DB::host, DB::username, DB::passwd, DB::db);
 $title = 'Admin panel';
 $description = 'Administrate shop items, users, categories';
 $menuItems = array(
-	                  'cat_manager.php'  => 'Categories manager',
-	                  'user_manager.php' => 'Users manager',
-	                  'items_manager.php'=> 'Items manager',
-	                  'orders_manager.php'    => 'Orders manager'
+	                  'cat_manager.php'    => 'Categories manager',
+	                  'user_manager.php'   => 'Users manager',
+	                  'items_manager.php'  => 'Items manager',
+	                  'orders_manager.php' => 'Orders manager',
+                    'customers.php'          => 'Customers'
 	                );
 ?>
 <!DOCTYPE html>
