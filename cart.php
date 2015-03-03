@@ -43,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   <div class = "clear"></div>
   <div class = "content container_12">
   	<div class = "sidebar grid_2">
-  			<?php $view->listCats($db->getCats()); ?>
+  		<?php $view->listCats($db->getCats()); ?>
   	</div>
   	<?php $db->displayCart($_SESSION['cart']); ?>
   </div>

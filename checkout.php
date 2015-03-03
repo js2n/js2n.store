@@ -55,8 +55,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   			<?php $view->listCats($db->getCats()); ?>
   	</div>
   	<?php if (isset($insResult) && ($insResult == true)): 
-    $_SESSION['total_items'] = 0;
+     $_SESSION['total_items'] = 0;
      $_SESSION['total_price'] = 0;
+     $_SESSION['cart'] = array();
     ?>
     <div class="items-area grid_9 prefix_1">
       <h2>An order was send!</h2>
