@@ -9,35 +9,41 @@ class Order extends UserDB  {
   	parent::__construct(DB::host, DB::username, DB::passwd, DB::db);
   	$this->orderData = $orderData;
   }
-
+  
+  public function setCustomerId($id)
+  {
+    $this->customerid = $id;
+  }
+  
   public function checkCustomer()  
   {
-  extract($this->orderData);
-  $sql = "select customer_id from customers where email = '$email'";
-  $res = $this->query($sql);
-  
-  if ($res->num_rows > 0) {
-    $customer = $res->fetch_object();
-    $this->customerid = $customer->customer_id;
-  } else {
-    $sql = "insert into customers (name, city, state, email, phone) values (?, ?, ?, ?, ?)";
-    if (!$stmt = $this->prepare($sql))  {
-      throw new Exception("Not prepare: $stmt->error");
-      return false;
+    extract($this->orderData);
+    $sql = "select customer_id from customers where email = '$email'";
+    $res = $this->query($sql);
+    
+    if ($res->num_rows > 0) {
+      $customer = $res->fetch_object();
+      $this->customerid = $customer->customer_id;
+    } else {
+      $sql = "insert into customers (name, city, state, email, phone) values (?, ?, ?, ?, ?)";
+      if (!$stmt = $this->prepare($sql))  {
+        throw new Exception("Not prepare: $stmt->error");
+        return false;
+      }
+      if (!$stmt->bind_param('sssss', $name, $city, $region, $email, $phone))  {
+        throw new Exception("Not bind: $stmt->error");
+        return false;
+      }    
+      if (!$stmt->execute())  {
+        throw new Exception("Not exec!: $stmt->error");
+        return false;
+      }
+    $this->setCustomerId($stmt->insert_id);
     }
-    if (!$stmt->bind_param('sssss', $name, $city, $region, $email, $phone))  {
-      throw new Exception("Not bind: $stmt->error");
-      return false;
-    }    
-    if (!$stmt->execute())  {
-      throw new Exception("Not exec!: $stmt->error");
-      return false;
-    }
-  $this->customerid = $stmt->insert_id;
-  }
   }
 
-  public function insertOrderData() {
+  public function insertOrderData() 
+  {
     $this->autocommit(FALSE);
     extract($this->orderData);
     @$date = date('Y-m-d');
