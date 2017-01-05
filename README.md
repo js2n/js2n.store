@@ -1,2 +1,2 @@
 # shop
-A small engine for online store.
+A small engine for online store
